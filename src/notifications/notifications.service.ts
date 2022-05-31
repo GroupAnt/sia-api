@@ -8,8 +8,19 @@ export class NotificationsService {
         @InjectRepository(Notification) private readonly repository: Repository<Notification>
     ) {}
 
-    create(notification: CreateNotificationDto) {
+    findByLinkAt(linkAt: string) {
+        return this.repository.findOne({ where: { linkAt } });
+    }
+
+    async create(notification: CreateNotificationDto) {
         if (!notification.updatedAt) notification.updatedAt = new Date();
+
+        if (notification.linkAt) {
+            const existingNotification = await this.findByLinkAt(notification.linkAt);
+            if (existingNotification) {
+                return this.repository.save({ id: existingNotification.id, ...notification, });
+            }
+        }
 
         const data = this.repository.create(notification);
         return this.repository.save(data);
