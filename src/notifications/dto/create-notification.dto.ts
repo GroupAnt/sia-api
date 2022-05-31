@@ -3,5 +3,5 @@ export class CreateNotificationDto {
     description: string
     linkAt: string
     origin: string
-    updatedAt: Date
+    updatedAt?: Date
 }

@@ -9,6 +9,8 @@ export class NotificationsService {
     ) {}
 
     create(notification: CreateNotificationDto) {
+        if (!notification.updatedAt) notification.updatedAt = new Date();
+
         const data = this.repository.create(notification);
         return this.repository.save(data);
     }
