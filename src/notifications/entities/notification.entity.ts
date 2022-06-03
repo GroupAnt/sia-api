@@ -8,7 +8,7 @@ export class Notification {
     @Column()
     title: string
 
-    @Column()
+    @Column({ default: '' })
     description: string
 
     @Column()
@@ -16,6 +16,9 @@ export class Notification {
 
     @Column()
     origin: string
+
+    @Column({ nullable: true })
+    externalId: string;
 
     @Column()
     updatedAt: Date

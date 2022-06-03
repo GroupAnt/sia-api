@@ -1,7 +1,8 @@
 export class CreateNotificationDto {
     title: string
-    description: string
+    description?: string
     linkAt: string
     origin: string
     updatedAt?: Date
+    externalId?: string
 }

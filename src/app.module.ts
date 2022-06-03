@@ -20,7 +20,7 @@ import { NotificationsModule } from './notifications/notifications.module';
         },
       }
     }),
-    NotificationsModule
+    NotificationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
