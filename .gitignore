@@ -38,3 +38,6 @@ lerna-debug.log*
 .env
 .yarn.lock
 .package-lock.json
+
+Dockerfile
+docker-compose.yml
