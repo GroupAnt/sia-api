@@ -9,11 +9,11 @@
     "node": "16.x"
   },
   "scripts": {
-    "heroku-prebuild": "npm install -g yarn @nestjs/cli && yarn install --production",
+    "heroku-prebuild": "npm install -g yarn @nestjs/cli && yarn install",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "yarn build && node dist/main",
+    "start": "yarn build && node --optimize_for_size --max_old_space_size=460 dist/main",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
